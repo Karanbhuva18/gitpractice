@@ -84,22 +84,100 @@ button:hover {
 
 /* Delete button styling */
 .delete-button {
-  background-color: #e74c3c; /* Red button */
+  background-color: #ff6f61; /* Soft coral/pink for a feminine touch */
   color: white;
   border: none;
-  border-radius: 50%;
-  padding: 10px 15px;
-  font-size: 1rem;
+  border-radius: 50%; /* Circular button */
+  padding: 12px 18px;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(255, 99, 71, 0.2); /* Soft shadow */
 }
 
+/* Hover effect */
 .delete-button:hover {
-  background-color: #c0392b;
-  transform: scale(1.1); /* Slight zoom on hover */
+  background-color: #f44336; /* Slightly darker red on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0 6px 12px rgba(255, 99, 71, 0.3); /* More prominent shadow on hover */
 }
 
+/* Focus effect */
 .delete-button:focus {
   outline: none;
-  box-shadow: 0 0 5px rgba(255, 99, 71, 0.6); /* Red focus effect */
+  box-shadow: 0 0 8px rgba(255, 99, 71, 0.6); /* Glowing red effect on focus */
 }
+
+/* Icon styling inside the button */
+.delete-button svg {
+  width: 20px;
+  height: 20px;
+  fill: white; /* Ensures the icon is white */
+  transition: transform 0.3s ease;
+}
+
+/* Icon scaling effect */
+.delete-button:hover svg {
+  transform: scale(1.2); /* Slight zoom effect for the icon */
+}
+
+/* Edit input field */
+.edit-input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 70%;
+  margin-right: 10px;
+}
+
+/* Save button */
+.save-button {
+  background-color: #007bff; /* Blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}
+
+/* Cancel button */
+.cancel-button {
+  background-color: #6c757d; /* Gray */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+  background-color: #5a6268;
+}
+
+/* Edit button */
+.edit-button {
+  background-color: #ffc107; /* Yellow */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+

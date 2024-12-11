@@ -4,32 +4,38 @@ import TodoList from './components/TodoList';
 import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
-  const [task, setTask] = useState('');
-  const [tasks, setTasks] = useLocalStorage('todos', []);
+  const [tasks, setTasks] = useState(['Sample Task 1', 'Sample Task 2']);
+  const [newTask, setNewTask] = useState('');
 
   const addTask = () => {
-    if (task.trim() === '') return;
-    setTasks([...tasks, task]);
-    setTask('');
+    if (newTask.trim()) {
+      setTasks([...tasks, newTask.trim()]);
+      setNewTask('');
+    }
   };
 
   const deleteTask = (index) => {
-    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(tasks.filter((_, i) => i !== index));
+  };
+
+  const editTask = (index, updatedTask) => {
+    const updatedTasks = tasks.map((task, i) =>
+      i === index ? updatedTask : task
+    );
     setTasks(updatedTasks);
   };
 
   return (
     <div className="App">
-      <h1>Todo List</h1>
+      <h1>Todo App</h1>
       <input
         type="text"
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
-        placeholder="Enter task"
+        value={newTask}
+        onChange={(e) => setNewTask(e.target.value)}
+        placeholder="Enter a new task"
       />
       <button onClick={addTask}>Add Task</button>
-
-      <TodoList tasks={tasks} onDelete={deleteTask} />
+      <TodoList tasks={tasks} onDelete={deleteTask} onEdit={editTask} />
     </div>
   );
 }
